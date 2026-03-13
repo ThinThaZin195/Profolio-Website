@@ -1,66 +1,410 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
+
+import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { FaInstagram, FaFacebook, FaGithub, FaLinkedin, FaDownload, FaEnvelope, FaMoon, FaSun, FaBars } from 'react-icons/fa';
+import { 
+  SiReact, SiNextdotjs, SiHtml5, SiCss, SiJavascript,
+  SiNodedotjs, SiExpress, SiPhp, SiLaravel,
+  SiMysql,
+  SiGit, SiGithub, SiPostman, SiSocketdotio
+} from 'react-icons/si';
+
+// Components
+const Header = () => {
+  const [darkTheme, setDarkTheme] = useState(true);
+
+  useEffect(() => {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+      setDarkTheme(false);
+      document.documentElement.classList.remove('dark');
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    setDarkTheme(!darkTheme);
+    if (!darkTheme) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  };
+
+  return (
+    <motion.header 
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="header"
+    >
+      <div className="logo">
+        Portfolio<span>.</span>
+      </div>
+      <nav className="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div className="header-actions">
+        <button className="theme-toggle" onClick={toggleTheme}>
+           {darkTheme ? <FaSun /> : <FaMoon />}
+        </button>
+        <a href="#contact" className="btn btn-primary" style={{ padding: '8px 16px', fontSize: '0.85rem' }}>
+          Hire Me
+        </a>
+      </div>
+      <button className="mobile-menu-btn">
+        <FaBars />
+      </button>
+    </motion.header>
+  );
+};
+
+const Hero = () => {
+  return (
+    <section id="home" className="section container hero">
+      <motion.div 
+        initial={{ x: -100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.6 }}
+        className="hero-left"
+      >
+        <div className="social-icons">
+          <a href="#" className="social-icon" style={{ color: '#10E326' }}><FaInstagram /></a>
+          <a href="#" className="social-icon" style={{ color: '#10E326' }}><FaFacebook /></a>
+          <a href="#" className="social-icon" style={{ color: '#10E326' }}><FaGithub /></a>
+          <a href="#" className="social-icon" style={{ color: '#10E326' }}><FaLinkedin /></a>
+        </div>
+        <h2 className="hero-title">Hi, I'm <div className="text-primary">Thin Tha Zin</div></h2>
+        <p style={{ maxWidth: '500px', fontSize: '1.1rem' }}>
+          A passionate Web Developer who loves building modern, responsive, and user-focused websites and applications.
+        </p>
+        <div className="hero-buttons">
+          <a href="/CV/Thin_Tha_Zin_Full_Stack_Developer_CV.pdf" download="ThinThaZin_CV.pdf" className="btn btn-primary">
+            <FaDownload /> Download CV
+          </a>
+          <a href="#contact" className="btn btn-outline">
+            <FaEnvelope /> Contact Me
+          </a>
+        </div>
+      </motion.div>
+
+      <motion.div 
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="hero-right"
+      >
+        {/* Placeholder for the 3D Avatar */}
+        <div className="hero-image-wrapper">
+          <img 
+            src="/my_photo.jpeg" 
+            alt="Thin Tha Zin" 
+            style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50px' }} 
+          />
+        </div>
+      </motion.div>
+    </section>
+  );
+};
+
+const About = () => {
+  return (
+    <section id="about" className="section container">
+      <motion.div
+        initial={{ y: 50, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        style={{ maxWidth: '900px', margin: '0 auto' }}
+      >
+        <h2 className="section-title" style={{ textAlign: 'center', marginBottom: '2rem' }}>About <span className="text-primary">Me</span></h2>
+        
+        <p style={{ fontSize: '1.2rem', lineHeight: '1.8', marginBottom: '1.5rem', color: 'var(--text-muted)', textAlign: 'justify' }}>
+          I am a passionate web developer who enjoys building modern, responsive web applications. I continuously strive to improve my skills in technologies such as <strong>JavaScript, React, Next.js, Node.js, and PHP</strong>. I am always eager to learn new tools and solve real-world problems through clean, efficient code.
+        </p>
+        
+        <p style={{ fontSize: '1.2rem', lineHeight: '1.8', marginBottom: '3rem', color: 'var(--text-muted)', textAlign: 'justify' }}>
+          Although some of my professional projects are confidential, I have built several personal and practice projects that demonstrate my development capabilities, attention to detail, and problem-solving abilities.
+        </p>
+
+        <div className="about-stats" style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '3rem', textAlign: 'center' }}>
+          <div className="stat-item">
+            <h3>2026</h3>
+            <p>L5 Diploma in Computing</p>
+          </div>
+          <div className="stat-item">
+            <h3>2+ Years</h3>
+            <p>Learning Web Dev</p>
+          </div>
+          <div className="stat-item">
+            <h3>8 Months</h3>
+            <p>Work Experience</p>
+          </div>
+          <div className="stat-item">
+            <h3>10+</h3>
+            <p>Personal Projects</p>
+          </div>
+        </div>
+      </motion.div>
+    </section>
+  );
+};
+
+const Skills = () => {
+  const skillCategories = [
+    {
+      title: 'Frontend',
+      skills: [
+        { name: 'HTML', icon: <SiHtml5 style={{ color: '#E34F26' }} /> },
+        { name: 'CSS', icon: <SiCss style={{ color: '#1572B6' }} /> },
+        { name: 'JavaScript', icon: <SiJavascript style={{ color: '#F7DF1E' }} /> },
+        { name: 'React', icon: <SiReact style={{ color: '#61DAFB' }} /> },
+        { name: 'Next.js', icon: <SiNextdotjs /> }
+      ]
+    },
+    {
+      title: 'Backend',
+      skills: [
+        { name: 'Node.js', icon: <SiNodedotjs style={{ color: '#339933' }} /> },
+        { name: 'Express', icon: <SiExpress /> },
+        { name: 'PHP', icon: <SiPhp style={{ color: '#777BB4' }} /> },
+        { name: 'Laravel', icon: <SiLaravel style={{ color: '#FF2D20' }} /> }
+      ]
+    },
+    {
+      title: 'Database',
+      skills: [
+        { name: 'MySQL', icon: <SiMysql style={{ color: '#4479A1' }} /> }
+      ]
+    },
+    {
+      title: 'Tools',
+      skills: [
+        { name: 'Git', icon: <SiGit style={{ color: '#F05032' }} /> },
+        { name: 'GitHub', icon: <SiGithub /> },
+        { name: 'Postman', icon: <SiPostman style={{ color: '#FF6C37' }} /> },
+        { name: 'Socket.io', icon: <SiSocketdotio /> }
+      ]
+    }
+  ];
+
+  return (
+    <section id="skills" className="section container">
+      <h2 className="section-title">My <span className="text-primary">Skills</span></h2>
+      <p style={{ textAlign: 'center', marginBottom: '3rem', maxWidth: '600px', margin: '0 auto 3rem auto' }}>
+        Technologies and tools I work with to create amazing web experiences.
+      </p>
+      
+      <div className="skills-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))' }}>
+        {skillCategories.map((category, index) => (
+          <motion.div 
+            key={category.title}
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
+            className="skill-card"
+            style={{ padding: '2rem' }}
+          >
+            <h3 style={{ borderBottom: '2px solid var(--primary)', paddingBottom: '0.5rem', marginBottom: '1.5rem', fontSize: '1.5rem' }}>
+              {category.title}
+            </h3>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+              {category.skills.map(skill => (
+                <span key={skill.name} className="tag" style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '8px 16px', fontSize: '1rem', backgroundColor: 'var(--secondary)', color: 'var(--foreground)' }}>
+                  <span style={{ fontSize: '1.2rem', display: 'flex', alignItems: 'center' }}>{skill.icon}</span> 
+                  {skill.name}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+const Projects = () => {
+  const [projects, setProjects] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchRepos = async () => {
+      try {
+        const response = await fetch('https://api.github.com/users/ThinThaZin195/repos?sort=updated&per_page=6');
+        if (response.ok) {
+          const data = await response.json();
+          setProjects(data);
+        }
+      } catch (error) {
+        console.error('Error fetching repos:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchRepos();
+  }, []);
+
+  return (
+    <section id="projects" className="section container">
+      <h2 className="section-title">My <span className="text-primary">Projects</span></h2>
+      <p style={{ textAlign: 'center', marginBottom: '3rem', maxWidth: '600px', margin: '0 auto 3rem auto' }}>
+        A showcase of my recent work and personal projects.
+      </p>
+
+      {loading ? (
+        <div style={{ textAlign: 'center', padding: '2rem', color: 'var(--text-muted)' }}>
+          Loading projects from GitHub...
+        </div>
+      ) : (
+        <div className="projects-grid">
+          {projects.map((project, index) => {
+            const projectImages: Record<string, string> = {
+              'FoodFusion': 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=250&fit=crop',
+              'NextJs_Frontend_FoodDelievery': 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=250&fit=crop',
+              'restaurant_UI': 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&h=250&fit=crop',
+              'Movie_Backend': 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=400&h=250&fit=crop',
+              'Movie_Frontend': 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=400&h=250&fit=crop',
+              'Weather_JS': 'https://images.unsplash.com/photo-1561484930-998b6a7b22e8?w=400&h=250&fit=crop',
+            };
+            
+            return (
+              <motion.div 
+                key={project.id}
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="project-card"
+              >
+                <img 
+                  src={projectImages[project.name] || 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=250&fit=crop'} 
+                  alt={project.name} 
+                  className="project-img" 
+                />
+              <div className="project-content">
+                <h3 className="project-title" style={{ textTransform: 'capitalize' }}>
+                  {project.name.replace(/-/g, ' ').replace(/_/g, ' ')}
+                </h3>
+                <p className="project-desc">
+                  {project.description || 'A complete project built with modern web technologies and clean code.'}
+                </p>
+                <div className="project-tags">
+                  {project.language && <span className="tag">{project.language}</span>}
+                </div>
+                <div className="project-links">
+                  <a 
+                    href={project.html_url} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="btn btn-outline" 
+                    style={{ flex: 1, display: 'flex', gap: '8px', alignItems: 'center', justifyContent: 'center', padding: '10px', fontSize: '0.875rem' }}
+                  >
+                    <FaGithub /> Code
+                  </a>
+                  {project.homepage && (
+                    <a 
+                      href={project.homepage} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="btn btn-primary" 
+                      style={{ flex: 1, display: 'flex', gap: '8px', alignItems: 'center', justifyContent: 'center', padding: '10px', fontSize: '0.875rem' }}
+                    >
+                      Demo
+                    </a>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+            );
+          })}
+        </div>
+      )}
+      <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+        <a 
+          href="https://github.com/ThinThaZin195?tab=repositories" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="btn btn-primary"
+        >
+          View All Projects
+        </a>
+      </div>
+    </section>
+  );
+};
+
+const Contact = () => {
+  return (
+    <section id="contact" className="section container contact">
+      <motion.div 
+        initial={{ x: -100, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <img 
+          src="/contact.png" 
+          alt="Contact Avatar" 
+          style={{ width: '100%', maxWidth: '400px', borderRadius: '40px', objectFit: 'cover' }} 
+        />
+      </motion.div>
+      <motion.div
+        initial={{ x: 100, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '1rem' }}>Get In <span className="text-primary">Touch</span></h2>
+        <p>Let's discuss your project and how I can help bring your ideas to life.</p>
+        
+        <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            <div className="form-group">
+              <input type="text" placeholder="First Name" className="form-input" />
+            </div>
+            <div className="form-group">
+              <input type="text" placeholder="Last Name" className="form-input" />
+            </div>
+          </div>
+          <div className="form-group">
+             <input type="email" placeholder="Email Address" className="form-input" />
+          </div>
+          <div className="form-group">
+             <input type="tel" placeholder="Phone Number" className="form-input" />
+          </div>
+          <div className="form-group">
+             <textarea placeholder="Your Message" className="form-textarea"></textarea>
+          </div>
+          <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>Send Message</button>
+        </form>
+      </motion.div>
+    </section>
+  );
+};
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main style={{ paddingTop: '20px' }}>
+      <Header />
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      <Contact />
+      
+      <footer style={{ textAlign: 'center', padding: '40px 0', color: 'var(--text-muted)', borderTop: '1px solid var(--secondary)', marginTop: '60px' }}>
+        <p>© 2026 Thin Tha Zin — Web Developer. All rights reserved.</p>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', marginTop: '16px' }}>
+           <a href="#" className="social-icon" style={{ width: '36px', height: '36px', fontSize: '1rem' }}><FaInstagram /></a>
+           <a href="#" className="social-icon" style={{ width: '36px', height: '36px', fontSize: '1rem' }}><FaGithub /></a>
+           <a href="#" className="social-icon" style={{ width: '36px', height: '36px', fontSize: '1rem' }}><FaLinkedin /></a>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </footer>
+    </main>
   );
 }
