@@ -244,9 +244,6 @@ const Projects = () => {
             if (repo.name === 'FoodFusion' && !repo.homepage) {
               return { ...repo, homepage: 'https://foodfusion-production.up.railway.app' };
             }
-            if ((repo.name === 'EduVibe-OnlineEducationPlaform-Frontend' || repo.name === 'EduVibe-OnlineEducationPlaform') && !repo.homepage) {
-              return { ...repo, homepage: 'https://eduvibe-onlineeducationplaform-frontend-production.up.railway.app/' };
-            }
             if (repo.name === 'EduVibe-OnlineEducationPlaform-Backend' && !repo.homepage) {
               return { ...repo, homepage: 'https://eduvibe-onlineeducationplaform-backend-production.up.railway.app/' };
             }
