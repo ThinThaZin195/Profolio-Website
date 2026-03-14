@@ -244,10 +244,10 @@ const Projects = () => {
             if (repo.name === 'FoodFusion' && !repo.homepage) {
               return { ...repo, homepage: 'https://foodfusion-production.up.railway.app' };
             }
-            if ((repo.name === 'EduVibe-OnlineEducationPlaform-Frontend' || repo.name === 'EduVibe-OnlineEducationPlaform') && !repo.homepage) {
+            if ((repo.name === 'EduVibe-OnlineEducationPlaform-frontend' || repo.name === 'EduVibe-OnlineEducationPlaform') && !repo.homepage) {
               return { ...repo, homepage: 'https://eduvibe-onlineeducationplaform-frontend-production.up.railway.app/' };
             }
-            if (repo.name === 'EduVibe-OnlineEducationPlaform-Backend' && !repo.homepage) {
+            if (repo.name === 'EduVibe-OnlineEducationPlaform-backend' && !repo.homepage) {
               return { ...repo, homepage: 'https://eduvibe-onlineeducationplaform-backend-production.up.railway.app/' };
             }
             return repo;
@@ -289,6 +289,8 @@ const Projects = () => {
               'TodoLists': 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=400&h=250&fit=crop',
               'Profolio-Website': 'https://images.unsplash.com/photo-1487014679447-9f8336841d58?w=400&h=250&fit=crop',
               'EduVibe-OnlineEducationPlaform': 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=400&h=250&fit=crop',
+              'EduVibe-OnlineEducationPlaform-frontend': 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=400&h=250&fit=crop',
+              'EduVibe-OnlineEducationPlaform-backend': 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=400&h=250&fit=crop',
               'MVC-php': 'https://images.unsplash.com/photo-1555099962-4199c345e5dd?w=400&h=250&fit=crop'
             };
             
