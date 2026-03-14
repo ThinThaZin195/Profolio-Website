@@ -73,9 +73,9 @@ const Hero = () => {
       >
         <div className="social-icons">
           <a href="#" className="social-icon" style={{ color: '#10E326' }}><FaInstagram /></a>
-          <a href="#" className="social-icon" style={{ color: '#10E326' }}><FaFacebook /></a>
-          <a href="#" className="social-icon" style={{ color: '#10E326' }}><FaGithub /></a>
-          <a href="#" className="social-icon" style={{ color: '#10E326' }}><FaLinkedin /></a>
+          <a href="https://web.facebook.com/Thinthazinn" target="_blank" rel="noopener noreferrer" className="social-icon" style={{ color: '#10E326' }}><FaFacebook /></a>
+          <a href="https://github.com/ThinThaZin195" target="_blank" rel="noopener noreferrer" className="social-icon" style={{ color: '#10E326' }}><FaGithub /></a>
+          <a href="https://www.linkedin.com/in/thin-tha-zin-1067b1340?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer" className="social-icon" style={{ color: '#10E326' }}><FaLinkedin /></a>
         </div>
         <h2 className="hero-title">Hi, I'm <div className="text-primary">Thin Tha Zin</div></h2>
         <p style={{ maxWidth: '500px', fontSize: '1.1rem' }}>
@@ -453,8 +453,8 @@ export default function Home() {
         <p>© 2026 Thin Tha Zin — Web Developer. All rights reserved.</p>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', marginTop: '16px' }}>
            <a href="#" className="social-icon" style={{ width: '36px', height: '36px', fontSize: '1rem' }}><FaInstagram /></a>
-           <a href="#" className="social-icon" style={{ width: '36px', height: '36px', fontSize: '1rem' }}><FaGithub /></a>
-           <a href="#" className="social-icon" style={{ width: '36px', height: '36px', fontSize: '1rem' }}><FaLinkedin /></a>
+           <a href="https://github.com/ThinThaZin195" target="_blank" rel="noopener noreferrer" className="social-icon" style={{ width: '36px', height: '36px', fontSize: '1rem' }}><FaGithub /></a>
+           <a href="https://www.linkedin.com/in/thin-tha-zin-1067b1340?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer" className="social-icon" style={{ width: '36px', height: '36px', fontSize: '1rem' }}><FaLinkedin /></a>
         </div>
       </footer>
     </main>
