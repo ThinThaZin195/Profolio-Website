@@ -390,7 +390,7 @@ const Contact = () => {
             </div>
             <div>
               <h4 style={{ margin: 0, fontSize: '1.1rem' }}>Phone</h4>
-              <p style={{ margin: 0, color: 'var(--text-muted)' }}>+66828047735</p>
+              <a href="tel:+66828047735" style={{ margin: 0, color: 'var(--text-muted)', textDecoration: 'none' }}>+66828047735</a>
             </div>
           </div>
 
