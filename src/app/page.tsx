@@ -237,7 +237,13 @@ const Projects = () => {
         const response = await fetch('https://api.github.com/users/ThinThaZin195/repos?sort=updated&per_page=6');
         if (response.ok) {
           const data = await response.json();
-          setProjects(data);
+          const updatedData = data.map((repo: any) => {
+            if (repo.name === 'movie-lists-and-reviews' && !repo.homepage) {
+              return { ...repo, homepage: 'https://movie-lists-and-reviews-qxrb.vercel.app' };
+            }
+            return repo;
+          });
+          setProjects(updatedData);
         }
       } catch (error) {
         console.error('Error fetching repos:', error);
@@ -270,6 +276,7 @@ const Projects = () => {
               'Movie_Backend': 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=400&h=250&fit=crop',
               'Movie_Frontend': 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=400&h=250&fit=crop',
               'Weather_JS': 'https://images.unsplash.com/photo-1561484930-998b6a7b22e8?w=400&h=250&fit=crop',
+              'movie-lists-and-reviews': 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400&h=250&fit=crop',
             };
             
             return (
