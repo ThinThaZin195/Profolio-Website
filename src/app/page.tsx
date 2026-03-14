@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaInstagram, FaFacebook, FaGithub, FaLinkedin, FaDownload, FaEnvelope, FaMoon, FaSun, FaBars } from 'react-icons/fa';
+import { FaInstagram, FaFacebook, FaGithub, FaLinkedin, FaDownload, FaEnvelope, FaMoon, FaSun, FaBars, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 import { 
   SiReact, SiNextdotjs, SiHtml5, SiCss, SiJavascript,
   SiNodedotjs, SiExpress, SiPhp, SiLaravel,
@@ -383,26 +383,57 @@ const Contact = () => {
         <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '1rem' }}>Get In <span className="text-primary">Touch</span></h2>
         <p>Let's discuss your project and how I can help bring your ideas to life.</p>
         
-        <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
-            <div className="form-group">
-              <input type="text" placeholder="First Name" className="form-input" />
+        <div className="contact-info" style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '30px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+            <div style={{ width: '50px', height: '50px', borderRadius: '50%', backgroundColor: 'var(--secondary)', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'var(--primary)', fontSize: '1.2rem' }}>
+              <FaPhone />
             </div>
-            <div className="form-group">
-              <input type="text" placeholder="Last Name" className="form-input" />
+            <div>
+              <h4 style={{ margin: 0, fontSize: '1.1rem' }}>Phone</h4>
+              <p style={{ margin: 0, color: 'var(--text-muted)' }}>+66828047735</p>
             </div>
           </div>
-          <div className="form-group">
-             <input type="email" placeholder="Email Address" className="form-input" />
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+            <div style={{ width: '50px', height: '50px', borderRadius: '50%', backgroundColor: 'var(--secondary)', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'var(--primary)', fontSize: '1.2rem' }}>
+              <FaMapMarkerAlt />
+            </div>
+            <div>
+              <h4 style={{ margin: 0, fontSize: '1.1rem' }}>Address</h4>
+              <p style={{ margin: 0, color: 'var(--text-muted)' }}>Bangkok</p>
+            </div>
           </div>
-          <div className="form-group">
-             <input type="tel" placeholder="Phone Number" className="form-input" />
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+            <div style={{ width: '50px', height: '50px', borderRadius: '50%', backgroundColor: 'var(--secondary)', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'var(--primary)', fontSize: '1.2rem' }}>
+              <FaLinkedin />
+            </div>
+            <div>
+              <h4 style={{ margin: 0, fontSize: '1.1rem' }}>LinkedIn</h4>
+              <a href="https://www.linkedin.com/in/thin-tha-zin-1067b1340?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer" style={{ margin: 0, color: 'var(--text-muted)', textDecoration: 'none' }}>Thin Tha Zin</a>
+            </div>
           </div>
-          <div className="form-group">
-             <textarea placeholder="Your Message" className="form-textarea"></textarea>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+            <div style={{ width: '50px', height: '50px', borderRadius: '50%', backgroundColor: 'var(--secondary)', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'var(--primary)', fontSize: '1.2rem' }}>
+              <FaFacebook />
+            </div>
+            <div>
+              <h4 style={{ margin: 0, fontSize: '1.1rem' }}>Facebook</h4>
+              <a href="https://web.facebook.com/Thinthazinn" target="_blank" rel="noopener noreferrer" style={{ margin: 0, color: 'var(--text-muted)', textDecoration: 'none' }}>Thinthazinn</a>
+            </div>
           </div>
-          <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>Send Message</button>
-        </form>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+            <div style={{ width: '50px', height: '50px', borderRadius: '50%', backgroundColor: 'var(--secondary)', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'var(--primary)', fontSize: '1.2rem' }}>
+              <FaGithub />
+            </div>
+            <div>
+              <h4 style={{ margin: 0, fontSize: '1.1rem' }}>GitHub</h4>
+              <a href="https://github.com/ThinThaZin195" target="_blank" rel="noopener noreferrer" style={{ margin: 0, color: 'var(--text-muted)', textDecoration: 'none' }}>ThinThaZin195</a>
+            </div>
+          </div>
+        </div>
       </motion.div>
     </section>
   );
