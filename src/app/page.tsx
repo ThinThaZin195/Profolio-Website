@@ -238,16 +238,16 @@ const Projects = () => {
         if (response.ok) {
           const data = await response.json();
           const updatedData = data.map((repo: any) => {
-            if (repo.name === 'movie-lists-and-reviews' && !repo.homepage) {
+            if (repo.name === 'movie-lists-and-reviews') {
               return { ...repo, homepage: 'https://movie-lists-and-reviews-qxrb.vercel.app' };
             }
-            if (repo.name === 'FoodFusion' && !repo.homepage) {
+            if (repo.name === 'FoodFusion') {
               return { ...repo, homepage: 'https://foodfusion-production.up.railway.app' };
             }
-            if ((repo.name === 'EduVibe-OnlineEducationPlaform-frontend' || repo.name === 'EduVibe-OnlineEducationPlaform') && !repo.homepage) {
+            if (repo.name === 'EduVibe-OnlineEducationPlaform-frontend') {
               return { ...repo, homepage: 'https://eduvibe-onlineeducationplaform-frontend-production.up.railway.app/' };
             }
-            if (repo.name === 'EduVibe-OnlineEducationPlaform-backend' && !repo.homepage) {
+            if (repo.name === 'EduVibe-OnlineEducationPlaform-backend') {
               return { ...repo, homepage: 'https://eduvibe-onlineeducationplaform-backend-production.up.railway.app/' };
             }
             return repo;
