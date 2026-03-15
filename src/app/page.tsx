@@ -100,7 +100,7 @@ const Hero = () => {
         {/* Placeholder for the 3D Avatar */}
         <div className="hero-image-wrapper">
           <img 
-            src="/my_photo.jpeg" 
+            src="/photo.jpeg" 
             alt="Thin Tha Zin" 
             style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50px' }} 
           />
