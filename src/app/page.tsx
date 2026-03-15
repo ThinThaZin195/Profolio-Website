@@ -55,10 +55,10 @@ const Header = () => {
         <a href="#contact" className="btn btn-primary" style={{ padding: '8px 16px', fontSize: '0.85rem' }}>
           Hire Me
         </a>
+        <button className="mobile-menu-btn" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          <FaBars />
+        </button>
       </div>
-      <button className="mobile-menu-btn" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-        <FaBars />
-      </button>
     </motion.header>
   );
 };
