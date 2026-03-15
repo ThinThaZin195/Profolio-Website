@@ -82,7 +82,7 @@ const Hero = () => {
           A passionate Web Developer who loves building modern, responsive, and user-focused websites and applications.
         </p>
         <div className="hero-buttons">
-          <a href="/CV/Thin_Tha_Zin_Full_Stack_Developer_CV.pdf" download="ThinThaZin_CV.pdf" className="btn btn-primary">
+          <a href="/CV/Thin_Tha_Zin_Full_Stack_Developer.pdf" download="ThinThaZin_CV.pdf" className="btn btn-primary">
             <FaDownload /> Download CV
           </a>
           <a href="#contact" className="btn btn-outline">
@@ -234,10 +234,13 @@ const Projects = () => {
   useEffect(() => {
     const fetchRepos = async () => {
       try {
-        const response = await fetch('https://api.github.com/users/ThinThaZin195/repos?sort=updated&per_page=6');
+        const response = await fetch('https://api.github.com/users/ThinThaZin195/repos?sort=updated&per_page=7');
         if (response.ok) {
           const data = await response.json();
-          const updatedData = data.map((repo: any) => {
+          const updatedData = data
+            .filter((repo: any) => repo.name !== 'Profolio-Website')
+            .slice(0, 6)
+            .map((repo: any) => {
             if (repo.name === 'movie-lists-and-reviews') {
               return { ...repo, homepage: 'https://movie-lists-and-reviews-qxrb.vercel.app' };
             }
