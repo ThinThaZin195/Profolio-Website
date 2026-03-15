@@ -13,6 +13,7 @@ import {
 // Components
 const Header = () => {
   const [darkTheme, setDarkTheme] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
@@ -40,12 +41,12 @@ const Header = () => {
       <div className="logo">
         Portfolio<span>.</span>
       </div>
-      <nav className="nav-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+      <nav className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
+        <a href="#home" onClick={() => setIsMobileMenuOpen(false)}>Home</a>
+        <a href="#about" onClick={() => setIsMobileMenuOpen(false)}>About</a>
+        <a href="#skills" onClick={() => setIsMobileMenuOpen(false)}>Skills</a>
+        <a href="#projects" onClick={() => setIsMobileMenuOpen(false)}>Projects</a>
+        <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
       </nav>
       <div className="header-actions">
         <button className="theme-toggle" onClick={toggleTheme}>
@@ -55,7 +56,7 @@ const Header = () => {
           Hire Me
         </a>
       </div>
-      <button className="mobile-menu-btn">
+      <button className="mobile-menu-btn" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
         <FaBars />
       </button>
     </motion.header>
@@ -118,6 +119,7 @@ const About = () => {
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
+        className="about-content"
         style={{ maxWidth: '900px', margin: '0 auto' }}
       >
         <h2 className="section-title" style={{ textAlign: 'center', marginBottom: '2rem' }}>About <span className="text-primary">Me</span></h2>
@@ -386,7 +388,7 @@ const Contact = () => {
         <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '1rem' }}>Get In <span className="text-primary">Touch</span></h2>
         <p>Let's discuss your project and how I can help bring your ideas to life.</p>
         
-        <div className="contact-info" style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '30px' }}>
+        <div className="contact-info" style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '30px', alignItems: 'flex-start' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
             <div style={{ width: '50px', height: '50px', borderRadius: '50%', backgroundColor: 'var(--secondary)', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'var(--primary)', fontSize: '1.2rem' }}>
               <FaPhone />

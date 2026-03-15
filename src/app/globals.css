@@ -205,6 +205,29 @@ p {
   .nav-links, .header-actions {
     display: none;
   }
+  .nav-links.mobile-open {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 16px;
+    right: 16px;
+    background-color: var(--card-bg);
+    padding: 24px;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow);
+    text-align: center;
+    border: 1px solid var(--secondary);
+    z-index: 1000;
+  }
+  .nav-links.mobile-open a {
+    padding: 12px 0;
+    font-size: 1.1rem;
+    border-bottom: 1px solid var(--secondary);
+  }
+  .nav-links.mobile-open a:last-child {
+    border-bottom: none;
+  }
   .mobile-menu-btn {
     display: block;
   }
@@ -494,8 +517,26 @@ p {
   .about-stats {
     justify-content: center;
   }
+
+  .about-content p {
+    text-align: left !important;
+  }
   
   .hero-title {
     font-size: 3rem;
+  }
+
+  .section-title {
+    text-align: center !important;
+  }
+
+  .contact-info {
+    align-items: center !important;
+    text-align: center;
+  }
+
+  .contact-info > div {
+    flex-direction: column;
+    text-align: center;
   }
 }
